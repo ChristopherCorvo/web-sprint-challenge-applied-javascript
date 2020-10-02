@@ -28,13 +28,24 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What is the DOM?
 
+    Answer: The DOM is an abbreviation for Direct Object Model. It is a tree like data structure that repersents all the HTML code and structures. Try to picture a living tree. The html body is like a large branch of that 
+    tree and like in nature a large branch might also have its own smaller branches. This is similar how the html body can have sections and those sections can have divs and sub divs, h1's etc. This hiearchy of information is rendered in what we call the DOM. 
+
 2. What is an event?
+
+    Answer: What I understand an 'event' to be is some an action of some sort that is conducted by either the user or the browser. Some examples of 'events' we workied with from a design standpoint are 'onclick' or 'onkeydown'.These are 'eventListeners' they are code that actually is listening for an event to take place. In these two cases the event would come from the user. When the user 'clicks' then eventListener would register or hear the even and then execute what ever tasks or code was contingent on that event taking place. 
 
 3. What is an event listener?
 
+    Answer: Similar to my above answer an event lister 'listens' for a certain event to take place. That event may come from the browser or be triggered by the user such as the eventListener 'scroll'. When the event takes place the listener hears it and then what ever code that was waiting for the event to take place can then be initialized. 
+
 4. Why would we convert a NodeList into an Array?
 
+    Answer: The reason you would want to convert an NodeList which is an array like is because unlike a true Array it does not have access to some of the higher order array methods such as reduce, map, and filter. 
+
 5. What is a component?
+
+    Answer: A component is function or I like to think of it as a machine that can take in data as arguement for example an obj or an array but it does not necessarily need to. But what it does is create HTML structures. You are in away creating a scafolding in js that can then be called upon later output something that will be viewed in HTML. So think about an ecommerce store. Each product might be a complex combination of divs and divs nested within divs and img's and links etc. Though it is complex every product displayed has same general pattern. It would take so much time to constantly hand code a new product square. This is where components come in. You make a machine that churns out product squares and then you connect it to a stream of data. TLDR it allows for speed and also allows for you to build more complex pages. 
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
