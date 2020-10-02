@@ -20,3 +20,59 @@
 // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
 //
 // Use your function to create a card for each of the articles, and append each card to the DOM.
+
+import axios from 'axios';
+
+function cardMaker(object) {
+    // instantiate the variables
+    const cardDiv = document.createElement('div');
+        const headlineDiv = document.createElement('div');
+        const authorDiv = document.createElement('div');
+        const imgContainerDiv = document.createElement('Div');
+            const authorImg = document.createElement('img');
+        const authorNameSpan = document.createElement('span');
+
+    // add classes
+    cardDiv.classList.add('card');
+    headlineDiv.classList.add('headline');
+    authorDiv.classList.add('author');
+    imgContainerDiv.classList.add('img-container');
+
+    // add content
+    headlineDiv.textContent = object.headline;
+    authorImg.src = object.authorPhoto;
+    authorNameSpan.textContent = `By: ${object.authorName}`;
+
+    // add listener
+    cardDiv.addEventListener('click', () =>{
+        console.log(object.headline)
+    })
+
+    // create hiearchy
+    cardDiv.append(headlineDiv, authorDiv);
+    authorDiv.append(imgContainerDiv, authorNameSpan)
+    imgContainerDiv.append(authorImg);
+
+    return cardDiv;
+}
+
+axios
+    .get('https://lambda-times-api.herokuapp.com/articles')
+        .then(res => {
+            const mainObject = res.data.articles; //object
+            console.log(mainObject)
+            // console.log(typeof(mainObject))
+            // console.log(mainObject.bootstrap)
+            // console.log(Object.keys(mainObject))
+            // console.log(Object.values(mainObject))
+
+            const objectValues = Object.values(res.data.articles);
+            console.log(objectValues)
+            // console.log(objectValues[1][1])
+            objectValues.forEach(element => {
+                // console.log(element)
+                for (let i = 0; i < element.length; i++) {
+                    document.querySelector('.cards-container').append(cardMaker(element[i]));
+                }
+            }) 
+        })
