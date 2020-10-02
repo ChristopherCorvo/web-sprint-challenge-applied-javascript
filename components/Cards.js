@@ -60,25 +60,19 @@ axios
     .get('https://lambda-times-api.herokuapp.com/articles')
         .then(res => {
             const mainObject = res.data.articles; //object
-            // console.log(mainObject)
+            console.log(mainObject)
             // console.log(typeof(mainObject))
             // console.log(mainObject.bootstrap)
             // console.log(Object.keys(mainObject))
             // console.log(Object.values(mainObject))
 
-            const objectValues = Object.values(mainObject);
-
+            const objectValues = Object.values(res.data.articles);
+            console.log(objectValues)
             // console.log(objectValues[1][1])
-            
             objectValues.forEach(element => {
                 // console.log(element)
-                
                 for (let i = 0; i < element.length; i++) {
-                    
                     document.querySelector('.cards-container').append(cardMaker(element[i]));
-
                 }
-            })
-
-             
+            }) 
         })
