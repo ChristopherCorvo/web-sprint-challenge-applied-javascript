@@ -29,7 +29,6 @@ function tabMaker (topicName) {
 axios
     .get('https://lambda-times-api.herokuapp.com/topics')
         .then(res => {
-            console.log(res.data.topics)
             res.data.topics.forEach(element => {
                 document.querySelector('.topics').append(tabMaker(element)); 
             });
